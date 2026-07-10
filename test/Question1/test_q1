@@ -1,0 +1,36 @@
+import pytest
+from src.Question1.util import average
+
+
+def test_average_harsh(capsys):
+    dt = {
+        "Harsh": [25.0, 26.5, 28.0]
+    }
+
+    average(dt, "Harsh")
+
+    captured = capsys.readouterr()
+    assert captured.out.strip() == "26.50"
+
+
+def test_average_krishna(capsys):
+    dt = {
+        "Krishna": [67.0, 68.0, 69.0]
+    }
+
+    average(dt, "Krishna")
+
+    captured = capsys.readouterr()
+    assert captured.out.strip() == "68.00"
+
+
+def test_average_malika(capsys):
+    dt = {
+        "Harsh": [25.0, 26.5, 28.0],
+        "Malika": [52.0, 56.0, 60.0]
+    }
+
+    average(dt, "Malika")
+
+    captured = capsys.readouterr()
+    assert captured.out.strip() == "56.00"
